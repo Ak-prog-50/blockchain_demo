@@ -33,6 +33,7 @@ function connectCommand(vorpal) {
     if(args.host && args.port) {
       try {
         p2p.connectToPeer(args.host, args.port);
+        console.info(`Connected to ${args.host}:${args.port}`);
       } catch(err) {
         this.log(err);
       }
@@ -71,7 +72,7 @@ function peersCommand(vorpal) {
     .alias('p')
     .action(function(args, callback) {
       p2p.peers.forEach(peer => {
-        this.log(`${peer.pxpPeer.socket._host} \n`)
+        this.log(`${peer.pxpPeer.socket._host} ddd\n`)
       }, this)
       callback();
     })
